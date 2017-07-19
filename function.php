@@ -2,7 +2,7 @@
 
 function dictionary(){
   $dict = [
-    " " => str_repeat('   ', 3),
+    " " => "   ",
     "1"   => "􂤁􀄵one􏿿 􂠁􀄵one􏿿 􂜁􀄵one􏿿 􂘁􀄵one􏿿",
     "2"   => "􂤁􀄶two􏿿 􂠁􀄶two􏿿 􂜁􀄶two􏿿 􂘁􀄶two􏿿",
     "3"   => "􂤁􀄷three􏿿 􂠁􀄷three􏿿 􂜁􀄷three􏿿 􂘁􀄷three􏿿",
@@ -68,7 +68,9 @@ function generate_emo($str){
   $str_len = strlen($str);
   $result = [];
   for($i=0;$i<$str_len;$i++){
-    if(isset($dict[$str[$i]])){
+    if($str[$i] == " "){
+      $result[] = "\x20\x20\x20";
+    }elseif(isset($dict[$str[$i]])){
       $array = explode(" ",$dict[$str[$i]]);
       $chr = $array[rand(0,count($array)-1)];
       $result[] = $chr;
