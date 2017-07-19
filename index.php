@@ -4,6 +4,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use \LINE\LINEBot\SignatureValidator as SignatureValidator;
 
+//load php file
+include('function.php');
+
 // load config
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
@@ -49,13 +52,15 @@ $app->post('/', function ($request, $response)
 		{
 			if($event['message']['type'] == 'text')
 			{
+
+
 				// send same message as reply to user
-				$result = $bot->replyText($event['replyToken'], $event['message']['text']);
+				$result = $bot->replyText($event['replyToken'], generate_emo($event['message']['text']));
 
 				// or we can use pushMessage() instead to send reply message
 				// $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event['message']['text']);
 				// $result = $bot->pushMessage($event['source']['userId'], $textMessageBuilder);
-				
+
 				return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 			}
 		}
