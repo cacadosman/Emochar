@@ -64,6 +64,18 @@ $app->post('/', function ($request, $response)
 				return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 			}
 		}
+			elseif($event['type'] == 'follow')
+		{
+			$response = $bot->getProfile($event['source']['userId']);
+			if ($response->isSucceeded()) {
+			    $profile = $response->getJSONDecodedBody();
+			    $uid = $event['source']['userId'];
+			    $name = $profile['displayName'];
+			    $param = "Thank you " . $profile['displayName'] . " for following me :D\nType anything to translate into emoji character";
+			    $result = $bot->replyText($event['replyToken'], $param);
+			}
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		}
 	}
 
 });
