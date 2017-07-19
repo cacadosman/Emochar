@@ -71,7 +71,7 @@ $app->post('/', function ($request, $response)
 			    $profile = $response->getJSONDecodedBody();
 			    $uid = $event['source']['userId'];
 			    $name = $profile['displayName'];
-			    $param = "Thank you " . $profile['displayName'] . " for following me :D\nType anything to translate into emoji character";
+			    $param = "Thank you " . $profile['displayName'] . " for following me :D\nType anything to translate into emoji character\n\nBug report : @cacadosman23";
 			    $result = $bot->replyText($event['replyToken'], $param);
 			}
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
