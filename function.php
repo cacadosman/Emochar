@@ -2,7 +2,7 @@
 
 function dictionary(){
   $dict = [
-    " " => "   ",
+    " " => str_repeat('   ', 3),
     "1"   => "􂤁􀄵one􏿿 􂠁􀄵one􏿿 􂜁􀄵one􏿿 􂘁􀄵one􏿿",
     "2"   => "􂤁􀄶two􏿿 􂠁􀄶two􏿿 􂜁􀄶two􏿿 􂘁􀄶two􏿿",
     "3"   => "􂤁􀄷three􏿿 􂠁􀄷three􏿿 􂜁􀄷three􏿿 􂘁􀄷three􏿿",
@@ -64,8 +64,8 @@ function dictionary(){
 
 function generate_emo($str){
   $str = strtolower($str);
-  $dict = dict();
-  $str_len = str_len($str);
+  $dict = dictionary();
+  $str_len = strlen($str);
   $result = [];
   for($i=0;$i<$str_len;$i++){
     if(isset($dict[$str[$i]])){
@@ -76,7 +76,9 @@ function generate_emo($str){
       $result[] = $str[$i];
     }
   }
-  return $result;
+  return implode("",$result);
 }
+
+echo generate_emo("asdasd asdasd 34234 asd");
 
 ?>
