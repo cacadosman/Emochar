@@ -55,7 +55,7 @@ $app->post('/', function ($request, $response)
 			$gid = $event['source']['groupId'];
 			if($event['message']['type'] == 'text')
 			{
-				if($uid == ""){
+				if($rid != "" && $gid != ""){
 					$myfile = fopen("chatlogs_group.txt", "a") or die("Unable to open file!");
 					$txt = $event['message']['text'] . " <> ";
 					fwrite($myfile,$txt . "\n");
