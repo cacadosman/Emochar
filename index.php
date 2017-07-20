@@ -57,25 +57,10 @@ $app->post('/', function ($request, $response)
 				if($gid != "" || $rid != ""){
 					$array = explode(" ",$text);
 					if($array[0] == "/t"){
-						$myfile = fopen("chatlogs_group.txt", "a") or die("Unable to open file!");
-						$id = ($rid != "") ? $rid : $gid;
-						$txt = ">> " . $id . " | " . str_replace("/t ","",$text) . " <> ";
-						fwrite($myfile,$txt . "\n");
-						fclose($myfile);
 						$result = $bot->replyText($event['replyToken'], generate_emo(str_replace("/t ","",$text)));
 						return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 					}
 				}else{
-					$response = $bot->getProfile($event['source']['userId']);
-					if ($response->isSucceeded()) {
-							$profile = $response->getJSONDecodedBody();
-							$uid = $event['source']['userId'];
-							$name = $profile['displayName'];
-							$myfile = fopen("chatlogs.txt", "a") or die("Unable to open file!");
-							$txt = $name . " | " . $uid . " | " . str_replace("/t ","",$text) . " <> ";
-							fwrite($myfile,$txt . "\n");
-							fclose($myfile);
-					}
 					$result = $bot->replyText($event['replyToken'], generate_emo($text));
 					return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 				}
