@@ -46,46 +46,24 @@ $app->post('/', function ($request, $response)
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
 
 	$data = json_decode($body, true);
-	foreach ($data['events'] as $event)
-	{
-		if ($event['type'] == 'message')
-		{
+	foreach ($data['events'] as $event){
+
+		if ($event['type'] == 'message'){
 			$uid = $event['source']['userId'];
-			$rid = $event['source']['roomId'];
-			$gid = $event['source']['groupId'];
-			if($event['message']['type'] == 'text')
-			{
-				if($rid != "" || $gid != ""){
-					$myfile = fopen("chatlogs_group.txt", "a") or die("Unable to open file!");
-					$id = ($rid != "") ? $rid : $gid;
-					$txt = ">> " . $id . " | " . $event['message']['text'] . " <> ";
-					fwrite($myfile,$txt . "\n");
-					fclose($myfile);
-				}elseif($uid != ""){
-					$response = $bot->getProfile($event['source']['userId']);
-					if ($response->isSucceeded()) {
-							$profile = $response->getJSONDecodedBody();
-							$uid = $event['source']['userId'];
-							$name = $profile['displayName'];
-							$myfile = fopen("chatlogs.txt", "a") or die("Unable to open file!");
-							$txt = $name . " | " . $uid . " | " . $event['message']['text'] . " <> ";
-							fwrite($myfile,$txt . "\n");
-							fclose($myfile);
+			if($event['message']['type'] == 'text')	{
+				$text = $event['message']['text'];
+				if($uid == ""){
+					$array = explode(" ",$text);
+					if($array[0] == "/t"){
+						$result = $bot->replyText($event['replyToken'], generate_emo(str_replace("/t ","",$text)));
+						return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 					}
+				}else{
+					$result = $bot->replyText($event['replyToken'], generate_emo($text));
+					return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 				}
-
-				// send same message as reply to user
-				$result = $bot->replyText($event['replyToken'], generate_emo($event['message']['text']));
-
-				// or we can use pushMessage() instead to send reply message
-				// $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($event['message']['text']);
-				// $result = $bot->pushMessage($event['source']['userId'], $textMessageBuilder);
-
-				return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 			}
-		}
-			elseif($event['type'] == 'follow')
-		{
+		}elseif($event['type'] == 'follow'){
 			$response = $bot->getProfile($event['source']['userId']);
 			if ($response->isSucceeded()) {
 			    $profile = $response->getJSONDecodedBody();
@@ -100,16 +78,4 @@ $app->post('/', function ($request, $response)
 
 });
 
-// $app->get('/push/{to}/{message}', function ($request, $response, $args)
-// {
-// 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
-// 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
-
-// 	$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($args['message']);
-// 	$result = $bot->pushMessage($args['to'], $textMessageBuilder);
-
-// 	return $result->getHTTPStatus() . ' ' . $result->getRawBody();
-// });
-
-/* JUST RUN IT */
 $app->run();

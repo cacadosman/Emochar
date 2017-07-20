@@ -68,6 +68,7 @@ function dictionary(){
   ];
   return $dict;
 }
+
 function generate_emo($str){
   $str = strtolower($str);
   $dict = dictionary();
