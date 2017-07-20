@@ -1,4 +1,5 @@
 # Emochar
+![license](https://img.shields.io/github/license/mashape/apistatus.svg) <br>
 Line Bot (Translate sentences into emoji characters) <br>
 Add/Follow :  @pnv4587v
 
