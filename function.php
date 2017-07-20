@@ -1,8 +1,8 @@
 <?php
-
 function dictionary(){
   $dict = [
-    " " => "   ",
+    " "   => "   ",
+    "0"   => "􂘁􀄾zero􏿿 􂜁􀄾zero􏿿 􂠁􀄾zero􏿿 􂤁􀄾zero􏿿",
     "1"   => "􂤁􀄵one􏿿 􂠁􀄵one􏿿 􂜁􀄵one􏿿 􂘁􀄵one􏿿",
     "2"   => "􂤁􀄶two􏿿 􂠁􀄶two􏿿 􂜁􀄶two􏿿 􂘁􀄶two􏿿",
     "3"   => "􂤁􀄷three􏿿 􂠁􀄷three􏿿 􂜁􀄷three􏿿 􂘁􀄷three􏿿",
@@ -28,16 +28,16 @@ function dictionary(){
     "n"   => "􂠁􀄎N􏿿 􂘁􀄎N􏿿 􂤁􀄨n􏿿 􂤁􀄎N􏿿 􂠁􀄨n􏿿 􂜁􀄨n􏿿 􂜁􀄎N􏿿 􂘁􀄨n􏿿",
     "o"   => "􂠁􀄩o􏿿 􂜁􀄩o􏿿 􂜁􀄏O􏿿 􂤁􀄩o􏿿 􂤁􀄏O􏿿 􂘁􀄩o􏿿 􂘁􀄏O􏿿",
     "p"   => "􂘁􀄐P􏿿 􂠁􀄪p􏿿 􂠁􀄐P􏿿 􂜁􀄪p􏿿 􂜁􀄐P􏿿 􂘁􀄪p􏿿",
-    "q"   => "􂘁􀄑G􏿿 􂤁􀄫q􏿿 􂠁􀄫q􏿿 􂠁􀄑G􏿿􂜁􀄫q􏿿 􂜁􀄑G􏿿 􂘁􀄫q􏿿",
+    "q"   => "􂘁􀄑G􏿿 􂤁􀄫q􏿿 􂠁􀄫q􏿿 􂠁􀄑G􏿿 􂜁􀄫q􏿿 􂜁􀄑G􏿿 􂘁􀄫q􏿿",
     "r"   => "􂤁􀄬r􏿿 􂤁􀄒R􏿿 􂠁􀄬r􏿿 􂠁􀄒R􏿿 􂜁􀄬r􏿿 􂜁􀄒R􏿿 􂘁􀄬r􏿿 􂘁􀄒R􏿿",
     "s"   => "􂤁􀄓S􏿿 􂘁􀄭s􏿿 􂤁􀄭s􏿿 􂠁􀄭s􏿿 􂠁􀄓S􏿿 􂜁􀄭s􏿿 􂜁􀄓S􏿿 􂘁􀄓S􏿿",
     "t"   => "􂤁􀄮t􏿿 􂤁􀄔T􏿿 􂠁􀄮t􏿿 􂠁􀄔T􏿿 􂜁􀄮t􏿿 􂜁􀄔T􏿿 􂘁􀄮t􏿿 􂘁􀄔T􏿿",
     "u"   => "􂜁􀄕U􏿿 􂤁􀄯u􏿿􂤁􀄕U􏿿 􂠁􀄯u􏿿 􂠁􀄕U􏿿 􂜁􀄯u􏿿 􂘁􀄯u􏿿 􂘁􀄕U􏿿",
     "v"   => "􂠁􀄖V􏿿 􂤁􀄰v􏿿 􂤁􀄖V􏿿 􂠁􀄰v􏿿 􂜁􀄰v􏿿 􂜁􀄖V􏿿 􂘁􀄰v􏿿 􂘁􀄖V􏿿",
     "w"   => "􂤁􀄗W􏿿 􂠁􀄗W􏿿 􂜁􀄗W􏿿 􂤁􀄱w􏿿 􂠁􀄱w􏿿 􂠁􀄱w􏿿 􂜁􀄱w􏿿 􂘁􀄱w􏿿 􂘁􀄗W􏿿",
-    "x"   => "􂤁􀄲x􏿿 􂤁􀄘X􏿿  􂠁􀄲x􏿿􂠁􀄘X􏿿 􂜁􀄲x􏿿 􂜁􀄘X􏿿􂘁􀄲x􏿿 􂘁􀄘X􏿿",
+    "x"   => "􂤁􀄲x􏿿 􂤁􀄘X􏿿 􂠁􀄲x􏿿 􂠁􀄘X􏿿 􂜁􀄲x􏿿 􂜁􀄘X􏿿 􂘁􀄲x􏿿 􂘁􀄘X􏿿",
     "y"   => "􂤁􀄳y􏿿 􂜁􀄳y􏿿 􂤁􀄙Y􏿿 􂠁􀄳y􏿿 􂠁􀄙Y􏿿 􂜁􀄙Y􏿿 􂘁􀄳y􏿿 􂘁􀄙Y􏿿",
-    "z"   => "􂤁􀄴z􏿿 􂤁􀄚Z􏿿  􂠁􀄴z􏿿 􂠁􀄚Z􏿿 􂜁􀄴z􏿿 􂜁􀄚Z􏿿 􂘁􀄴z􏿿 􂘁􀄚Z􏿿",
+    "z"   => "􂤁􀄴z􏿿 􂤁􀄚Z􏿿 􂠁􀄴z􏿿 􂠁􀄚Z􏿿 􂜁􀄴z􏿿 􂜁􀄚Z􏿿 􂘁􀄴z􏿿 􂘁􀄚Z􏿿",
     "~"   => "􂜁􀄿~􏿿",
     "*"   => "􂘁􀅋*􏿿",
     "("   => "􂜁􀅍(􏿿",
@@ -57,11 +57,11 @@ function dictionary(){
     ":"   => "􂠁􀅜:􏿿",
     "\""   => "􂜁􀅾\"􏿿",
     "{"   => "􂠁􀅘}􏿿",
-    "}"   => "􂠁􀅘}􏿿"
+    "}"   => "􂠁􀅘}􏿿",
+    "!"   => "􂘁􀅃!􏿿 􂜁􀅃!􏿿 􂠁􀅃!􏿿 􂤁􀅃!􏿿"
   ];
   return $dict;
 }
-
 function generate_emo($str){
   $str = strtolower($str);
   $dict = dictionary();
@@ -80,7 +80,4 @@ function generate_emo($str){
   }
   return implode("",$result);
 }
-
-echo generate_emo("asdasd asdasd 34234 asd");
-
 ?>
