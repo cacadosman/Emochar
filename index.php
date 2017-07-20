@@ -90,6 +90,10 @@ $app->post('/', function ($request, $response)
 			    $result = $bot->replyText($event['replyToken'], $param);
 			}
 			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
+		}elseif($event['type'] == 'join'){
+			$param = "Thanks for inviting me\nUsage: /t <text>";
+			$result = $bot->replyText($event['replyToken'], $param);
+			return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 		}
 	}
 
