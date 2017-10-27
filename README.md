@@ -5,4 +5,4 @@ Add/Follow :  @pnv4587v
 
 ![emochar](http://i.imgur.com/EM5XO8p.jpg)
 <br>
-Thanks to dicodingacademy
+Thanks to Dicodingacademy
