@@ -65,7 +65,7 @@ $app->post('/', function ($request, $response)
 					return $result->getHTTPStatus() . ' ' . $result->getRawBody();
 				}
 			}
-		}elseif($event['type'] == 'follow'){
+		}elseif($event['type'] == 'follow'){ // Control Follow status
 			$response = $bot->getProfile($event['source']['userId']);
 			if ($response->isSucceeded()) {
 			    $profile = $response->getJSONDecodedBody();
